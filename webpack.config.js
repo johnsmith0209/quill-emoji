@@ -14,7 +14,7 @@ const config = {
   target: "web",
   mode: "production",
   externals: {
-    quill: {
+    '@lxr/quill': {
       commonjs: 'quill',
       commonjs2: 'quill',
       amd: 'quill',

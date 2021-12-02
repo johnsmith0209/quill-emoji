@@ -1,4 +1,4 @@
-import Quill from 'quill';
+import Quill from '@lxr/quill';
 import Fuse from 'fuse.js';
 import emojiList from './emoji-list.js';
 
