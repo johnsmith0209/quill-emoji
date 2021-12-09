@@ -15,9 +15,9 @@ const config = {
   mode: "production",
   externals: {
     '@lxr/quill': {
-      commonjs: 'quill',
-      commonjs2: 'quill',
-      amd: 'quill',
+      commonjs: '@lxr/quill',
+      commonjs2: '@lxr/quill',
+      amd: '@lxr/quill',
       root: 'Quill'
     }
   },

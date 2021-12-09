@@ -82,13 +82,13 @@ function fn_showEmojiPalette(quill) {
 
   var emojiType = [
     {'type': 'p', 'name': 'people', 'content': '<div class="i-people"></div>'},
-    {'type': 'n', 'name': 'nature', 'content': '<div class="i-nature"></div>'},
-    {'type': 'd', 'name': 'food', 'content': '<div class="i-food"></div>'},
-    {'type': 's', 'name': 'symbols', 'content': '<div class="i-symbols"></div>'},
-    {'type': 'a', 'name': 'activity', 'content': '<div class="i-activity"></div>'},
-    {'type': 't', 'name': 'travel', 'content': '<div class="i-travel"></div>'},
-    {'type': 'o', 'name': 'objects', 'content': '<div class="i-objects"></div>'},
-    {'type': 'f', 'name': 'flags', 'content': '<div class="i-flags"></div>'}
+    // {'type': 'n', 'name': 'nature', 'content': '<div class="i-nature"></div>'},
+    // {'type': 'd', 'name': 'food', 'content': '<div class="i-food"></div>'},
+    // {'type': 's', 'name': 'symbols', 'content': '<div class="i-symbols"></div>'},
+    // {'type': 'a', 'name': 'activity', 'content': '<div class="i-activity"></div>'},
+    // {'type': 't', 'name': 'travel', 'content': '<div class="i-travel"></div>'},
+    // {'type': 'o', 'name': 'objects', 'content': '<div class="i-objects"></div>'},
+    // {'type': 'f', 'name': 'flags', 'content': '<div class="i-flags"></div>'}
   ];
 
   let tabElementHolder = document.createElement('ul');
@@ -115,10 +115,10 @@ function fn_showEmojiPalette(quill) {
 
     let emojiFilter = document.querySelector('.filter-' + emojiType.name);
     emojiFilter.addEventListener('click', function () {
-      let tab = document.querySelector('.active');
-      if (tab) {
+      let tabs = document.querySelectorAll('.emoji-tab.active');
+      [].slice.call(tabs).forEach(tab => {
         tab.classList.remove('active');
-      }
+      });
       emojiFilter.classList.toggle('active');
       fn_updateEmojiContainer(emojiFilter, panel, quill);
     })
@@ -159,16 +159,23 @@ function fn_emojiElementsToPanel(type, panel, quill) {
     span.appendChild(t);
     span.classList.add('bem');
     span.classList.add('bem-' + emoji.name);
-    span.classList.add('ap');
-    span.classList.add('ap-' + emoji.name);
-    let output = '' + emoji.code_decimal + '';
+    if (emoji.code_decimal) {
+      span.classList.add('ap');
+      span.classList.add('ap-' + emoji.name);
+    } else {
+      span.classList.add('ap-html');
+    }
+    let output = '' + (emoji.code_decimal || emoji.html) + '';
     span.innerHTML = output + ' ';
     panel.appendChild(span);
 
     let customButton = document.querySelector('.bem-' + emoji.name);
     if (customButton) {
       customButton.addEventListener('click', function () {
-        makeElement("span", {className: "ico", innerHTML: '' + emoji.code_decimal + ' '});
+        // 这步没明白 创建了html但也没用上
+        if (emoji.code_decimal) {
+          makeElement("span", {className: "ico", innerHTML: '' + emoji.code_decimal + ' '});
+        }
         quill.insertEmbed(range.index, 'emoji', emoji, Quill.sources.USER);
         setTimeout(() => quill.setSelection(range.index + 1), 0);
         fn_close();

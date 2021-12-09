@@ -1,19 +1,19 @@
-import Parchment from 'parchment';
+import Quill from '@lxr/quill';
 import emojiMap from "./emoji-map";
 
+const Parchment = Quill.import('parchment');
 class EmojiBlot extends Parchment.Embed {
   static create(value) {
     let node = super.create();
     if (typeof value === 'object') {
-
       EmojiBlot.buildSpan(value, node);
     } else if (typeof value === "string") {
       const valueObj = emojiMap[value];
-
       if (valueObj) {
         EmojiBlot.buildSpan(valueObj, node);
       }
     }
+    node.setAttribute('contenteditable', false);
 
     return node;
   }
@@ -25,10 +25,15 @@ class EmojiBlot extends Parchment.Embed {
   static buildSpan(value, node) {
     node.setAttribute('data-name', value.name);
     let emojiSpan = document.createElement('span');
-    emojiSpan.classList.add(this.emojiClass);
-    emojiSpan.classList.add(this.emojiPrefix + value.name);
     // unicode can be '1f1f5-1f1ea',see emoji-list.js.
-    emojiSpan.innerText = String.fromCodePoint(...EmojiBlot.parseUnicode(value.unicode));
+    if (value.unicode) {
+      emojiSpan.classList.add(this.emojiClass);
+      emojiSpan.classList.add(this.emojiPrefix + value.name);
+      emojiSpan.innerText = String.fromCodePoint(...EmojiBlot.parseUnicode(value.unicode));
+    } else if (value.html) {
+      emojiSpan.classList.add(this.emojiHtmlClass);
+      emojiSpan.innerHTML = value.html;
+    }
     node.appendChild(emojiSpan);
   }
   static parseUnicode(string) {
@@ -41,5 +46,6 @@ EmojiBlot.className = 'ql-emojiblot';
 EmojiBlot.tagName = 'span';
 EmojiBlot.emojiClass = 'ap';
 EmojiBlot.emojiPrefix = 'ap-';
+EmojiBlot.emojiHtmlClass = 'ap-html';
 
 export default EmojiBlot;
