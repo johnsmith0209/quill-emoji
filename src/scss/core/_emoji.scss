@@ -24,13 +24,14 @@
 }
 
 .ap-html {
-    display: inline-flex;
+    display: inline-block;
     box-sizing: border-box;
     vertical-align: middle !important;
     font-size: 2rem;
     line-height: 2rem;
-    width: 2rem;
-    height: 2rem;
+    width: 30rem;
+    height: 30rem;
+    text-align: center;
     margin-left: 0.2rem;
     margin-right: 0.2rem;
 }

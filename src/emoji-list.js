@@ -1,135 +1,131 @@
 import {
   icon,
 } from '@fortawesome/fontawesome-svg-core';
-import {
-  faAngry,
-  faFrown,
-  faGrin,
-  faGrinBeam,
-  faGrinBeamSweat,
-  faGrinTears,
-  faGrinTongue,
-  faGrinTongueWink,
-  faLaugh,
-  faMeh,
-  faSadCry,
-  faSadTear,
-  faSmile,
-  faSurprise,
-  faTired,
-} from '@fortawesome/free-regular-svg-icons';
+import {faAngry} from '@fortawesome/free-regular-svg-icons/faAngry';
+import {faFrown} from '@fortawesome/free-regular-svg-icons/faFrown';
+import {faGrin} from '@fortawesome/free-regular-svg-icons/faGrin';
+import {faGrinBeam} from '@fortawesome/free-regular-svg-icons/faGrinBeam';
+import {faGrinBeamSweat} from '@fortawesome/free-regular-svg-icons/faGrinBeamSweat';
+import {faGrinTears} from '@fortawesome/free-regular-svg-icons/faGrinTears';
+import {faGrinTongue} from '@fortawesome/free-regular-svg-icons/faGrinTongue';
+import {faGrinTongueWink} from '@fortawesome/free-regular-svg-icons/faGrinTongueWink';
+import {faLaugh} from '@fortawesome/free-regular-svg-icons/faLaugh';
+import {faMeh} from '@fortawesome/free-regular-svg-icons/faMeh';
+import {faSadCry} from '@fortawesome/free-regular-svg-icons/faSadCry';
+import {faSadTear} from '@fortawesome/free-regular-svg-icons/faSadTear';
+import {faSmile} from '@fortawesome/free-regular-svg-icons/faSmile';
+import {faSurprise} from '@fortawesome/free-regular-svg-icons/faSurprise';
+import {faTired} from '@fortawesome/free-regular-svg-icons/faTired';
 
+// code_decimal 和 html 只能存在一个 优先使用element
+// "code_decimal": "&#128175;",
 let emojiList = [
   /** people */
   {
-    "name": "p-grin",
+    "name": "far-grin",
     "shortname": ":grin:",
-    // code_decimal 和 html 只能存在一个 优先使用element
-    // "code_decimal": "&#128175;",
     "html": icon(faGrin).html,
     "category": "p",
     "emoji_order": "1"
   },
   {
-    "name": "p-grin-beam",
+    "name": "far-grin-beam",
     "shortname": ":grinbeam:",
     "html": icon(faGrinBeam).html,
     "category": "p",
     "emoji_order": "2"
   },
   {
-    "name": "p-grin-tears",
+    "name": "far-grin-tears",
     "shortname": ":grintears:",
     "html": icon(faGrinTears).html,
     "category": "p",
     "emoji_order": "3"
   },
   {
-    "name": "p-grin-beam-sweat",
+    "name": "far-grin-beam-sweat",
     "shortname": ":grinbeamsweat:",
     "html": icon(faGrinBeamSweat).html,
     "category": "p",
     "emoji_order": "4"
   },
   {
-    "name": "p-laugh",
+    "name": "far-laugh",
     "shortname": ":laugh:",
     "html": icon(faLaugh).html,
     "category": "p",
     "emoji_order": "5"
   },
   {
-    "name": "p-smile",
+    "name": "far-smile",
     "shortname": ":smile:",
     "html": icon(faSmile).html,
     "category": "p",
     "emoji_order": "6"
   },
   {
-    "name": "p-meh",
+    "name": "far-meh",
     "shortname": ":meh:",
     "html": icon(faMeh).html,
     "category": "p",
     "emoji_order": "7"
   },
   {
-    "name": "p-grin-tongue",
+    "name": "far-grin-tongue",
     "shortname": ":grintongue:",
     "html": icon(faGrinTongue).html,
     "category": "p",
     "emoji_order": "8"
   },
   {
-    "name": "p-grin-tongue-wink",
+    "name": "far-grin-tongue-wink",
     "shortname": ":grintonguewink:",
     "html": icon(faGrinTongueWink).html,
     "category": "p",
     "emoji_order": "9"
   },
   {
-    "name": "p-frown",
+    "name": "far-frown",
     "shortname": ":frown:",
     "html": icon(faFrown).html,
     "category": "p",
     "emoji_order": "10"
   },
   {
-    "name": "p-sad-tear",
+    "name": "far-sad-tear",
     "shortname": ":sadtear:",
     "html": icon(faSadTear).html,
     "category": "p",
     "emoji_order": "11"
   },
   {
-    "name": "p-sad-cry",
+    "name": "far-sad-cry",
     "shortname": ":sadcry:",
     "html": icon(faSadCry).html,
     "category": "p",
     "emoji_order": "12"
   },
   {
-    "name": "p-tired",
+    "name": "far-tired",
     "shortname": ":tired:",
     "html": icon(faTired).html,
     "category": "p",
     "emoji_order": "13"
   },
   {
-    "name": "p-surprise",
+    "name": "far-surprise",
     "shortname": ":surprise:",
     "html": icon(faSurprise).html,
     "category": "p",
     "emoji_order": "14"
   },
   {
-    "name": "p-angry",
-    "shortname": "angry",
+    "name": "far-angry",
+    "shortname": ":angry:",
     "html": icon(faAngry).html,
     "category": "p",
     "emoji_order": "15"
   },
 ];
-
-console.log(emojiList);
 
 export default emojiList;

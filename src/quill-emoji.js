@@ -10,6 +10,6 @@ Quill.register({
   'modules/emoji-shortname': ShortNameEmoji,
   'modules/emoji-toolbar': ToolbarEmoji,
   'modules/emoji-textarea': TextAreaEmoji
-}, true);  
+}, true);
 
 export default { EmojiBlot, ShortNameEmoji, ToolbarEmoji, TextAreaEmoji };
